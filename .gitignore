@@ -17,3 +17,11 @@ dist/
 # Env
 .env*
 !.env.example
+
+# Logs
+app/logs/*
+!app/logs/.gitkeep
+!app/logs/res_*
+
+# Mac
+.DS_Store

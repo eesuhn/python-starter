@@ -19,7 +19,10 @@ $(VENV)/bin/activate: requirements.txt
 	@echo "\033[0;32mDone!\033[0m"
 
 run: venv
-	@./$(VENV)/bin/python3 $(MAIN)
+	@./$(VENV)/bin/python3 $(MAIN) $(filter-out $@,$(MAKECMDGOALS))
+
+%:
+	@:
 
 clean:
 	@if [ -d $(VENV) ]; then \
@@ -28,7 +31,7 @@ clean:
 
 fclean: clean
 	@if [ -d $(VENV) ]; then \
-		rm -rf $(VENV) .mypy_cache/ build/ dist/; \
+		rm -rf .mypy_cache/ build/ dist/; \
 	fi
 
 re: fclean all
