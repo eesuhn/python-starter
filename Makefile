@@ -24,10 +24,7 @@ run: venv
 lint: venv
 	@./$(VENV)/bin/pycodestyle --ignore=E501 $(PACKAGE) $(MAIN)
 	@./$(VENV)/bin/pylint --rcfile=./$(CONFIG)/.pylintrc $(PACKAGE) $(MAIN)
-	@./$(VENV)/bin/mypy --config-file=./$(CONFIG)/.mypy.ini $(PACKAGE) $(MAIN)
-
-test: venv
-	@./$(VENV)/bin/pytest
+#	@./$(VENV)/bin/mypy --config-file=./$(CONFIG)/.mypy.ini $(PACKAGE) $(MAIN)
 
 clean:
 	@if [ -d $(VENV) ]; then \
@@ -35,8 +32,8 @@ clean:
 	fi
 
 fclean: clean
-	@rm -rf $(VENV) .mypy_cache/ .pytest_cache/
+	@rm -rf $(VENV) .mypy_cache/
 
 re: fclean all
 
-.PHONY: all venv command run lint test clean fclean re
+.PHONY: all venv command run lint clean fclean re

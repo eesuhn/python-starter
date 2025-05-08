@@ -3,7 +3,6 @@ __pycache__/
 
 # Cache
 .mypy_cache/
-.pytest_cache/
 
 # Environment
 .venv/
