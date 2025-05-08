@@ -41,7 +41,9 @@ class JsonFile:
     def write_json(
         data: Optional[dict],
         file_path: Path,
-        root: Path = RootPath.get_package_root()
+        root: Path = RootPath.get_package_root(),
+        indent: int = 2,
+        sort_keys: bool = False
     ) -> bool:
         if data is None:
             return False
@@ -54,7 +56,8 @@ class JsonFile:
             json.dump(
                 obj=data,
                 fp=f,
-                indent=4
+                indent=indent,
+                sort_keys=sort_keys
             )
         return True
 
@@ -76,8 +79,8 @@ class JsonFile:
 
 
 class ColorPrint:
+    @staticmethod
     def print_color(
-        self,
         m: str,
         prefix: str = "placeholder",
         color: str = Fore.RESET
