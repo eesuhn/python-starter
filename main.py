@@ -1,9 +1,6 @@
-"""
-python-starter
-    by @eesuhn
-"""
-import app
+def main():
+    print("Hello from python-starter!")
 
 
-if __name__ == '__main__':
-    app.Main()
+if __name__ == "__main__":
+    main()
