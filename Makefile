@@ -7,7 +7,7 @@ all: venv
 venv: $(VENV)/bin/activate
 
 $(VENV)/bin/activate: pyproject.toml
-	@uv sync
+	@uv sync --frozen
 	@uv run pre-commit install --config=$(CONFIG)/pre-commit.yaml
 
 %:
