@@ -18,3 +18,12 @@ repos:
         pass_filenames: false
         stages: [pre-commit]
         always_run: true
+
+      - id: pyright
+        name: "Typecheck with pyright"
+        entry: uv
+        language: system
+        args: ["run", "pyright"]
+        pass_filenames: false
+        stages: [pre-commit]
+        always_run: true

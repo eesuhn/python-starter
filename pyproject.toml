@@ -12,6 +12,7 @@ dependencies = [
 dev = [
     "justsdk>=2.2.0",
     "pre-commit>=4.2.0",
+    "pyright>=1.1.407",
     "pytest>=8.4.1",
     "ruff>=0.12.3",
 ]
