@@ -30,14 +30,15 @@ right:
 	@uv run pyright
 
 clean:
-	rm -rf .pytest_cache/ .ruff_cache/
-	@uvx pyclean .
+	@rm -rf .pytest_cache/ .ruff_cache/
+	@uvx pyclean . >/dev/null 2>&1
+	@echo ">> done cleaning"
 
 test:
 	@uv run pytest $(filter-out $@,$(MAKECMDGOALS))
 
 run:
-	@uv run -m main $(filter-out $@,$(MAKECMDGOALS))
+	@uv run -m app $(filter-out $@,$(MAKECMDGOALS))
 
 .PHONY: all venv upgrade format check check-fix clean test \
 		run right

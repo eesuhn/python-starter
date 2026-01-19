@@ -1,3 +1,5 @@
+fail_fast: true
+
 repos:
   - repo: local
     hooks:
@@ -8,7 +10,7 @@ repos:
         args: ["run", "ruff", "format"]
         pass_filenames: false
         stages: [pre-commit]
-        always_run: true
+        types: [python]
 
       - id: ruff-check
         name: "Check (Fix) with ruff"
@@ -17,7 +19,7 @@ repos:
         args: ["run", "ruff", "check", "--fix"]
         pass_filenames: false
         stages: [pre-commit]
-        always_run: true
+        types: [python]
 
       - id: pyright
         name: "Typecheck with pyright"
@@ -26,4 +28,4 @@ repos:
         args: ["run", "pyright"]
         pass_filenames: false
         stages: [pre-commit]
-        always_run: true
+        types: [python]
