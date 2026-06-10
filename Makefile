@@ -15,7 +15,6 @@ $(VENV)/bin/activate: pyproject.toml
 
 upgrade:
 	@uv sync --upgrade
-	@git add uv.lock
 
 format:
 	@uv run ruff format
